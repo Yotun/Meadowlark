@@ -1,0 +1,14 @@
+{
+  "name": "meadowlark",
+  "version": "0.0.1",
+  "description": "Meadowlark",
+  "main": "Meadowlark.js",
+  "author": {
+    "name": "Yotun"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "pug": "^2.0.0-rc.4",
+    "serve-favicon": "^2.4.5"
+  }
+}

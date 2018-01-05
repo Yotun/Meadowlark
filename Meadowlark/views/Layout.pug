@@ -1,0 +1,28 @@
+﻿doctype html
+html(class='no-js' lang='ru')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible' content='ie=edge')
+    meta(name='description' content='')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='css/normalize.css')
+    link(rel='stylesheet' href='css/main.css')
+
+    title Meadowlark Travel
+
+  body
+    block header
+      <!--[if lte IE 9]>
+      p(class='browserupgrade') Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="https://browsehappy.com/">обновите свой браузер</a> чтобы улучшить безопасность и удобство работы.
+      <![endif]-->
+      header
+        img(src='img/logo.png' alt='logo')
+
+    block content
+
+    block footer
+      script(src='js/vendor/modernizr-3.5.0.min.js')
+      script(src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous')
+      script window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')
+      script(src='js/plugins.js')
+      script(src='js/main.js')
