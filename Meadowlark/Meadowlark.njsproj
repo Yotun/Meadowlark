@@ -28,6 +28,9 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="lib\Fortune.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Meadowlark.js" />
     <Compile Include="public\js\main.js" />
     <Compile Include="public\js\plugins.js" />
@@ -56,6 +59,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="lib\" />
     <Folder Include="views\" />
     <Folder Include="public\" />
     <Folder Include="public\css\" />
