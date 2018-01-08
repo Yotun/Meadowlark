@@ -5,10 +5,13 @@ html(class='no-js' lang='ru')
     meta(http-equiv='x-ua-compatible' content='ie=edge')
     meta(name='description' content='')
     meta(name='viewport' content='width=device-width, initial-scale=1')
-    link(rel='stylesheet' href='css/normalize.css')
-    link(rel='stylesheet' href='css/main.css')
+    link(rel='stylesheet' href='/css/normalize.css')
+    link(rel='stylesheet' href='/css/main.css')
 
     title Meadowlark Travel
+
+    if showTests
+      link(rel='stylesheet' href='/vendor/mocha.css')
 
   body
     block header
@@ -16,13 +19,28 @@ html(class='no-js' lang='ru')
       p(class='browserupgrade') Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="https://browsehappy.com/">обновите свой браузер</a> чтобы улучшить безопасность и удобство работы.
       <![endif]-->
       header
-        img(src='img/logo.png' alt='logo')
+        img(src='/img/logo.png' alt='logo')
 
     block content
 
     block footer
-      script(src='js/vendor/modernizr-3.5.0.min.js')
+
+    block scripts
+      script(src='/js/vendor/modernizr-3.5.0.min.js')
       script(src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous')
-      script window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')
-      script(src='js/plugins.js')
-      script(src='js/main.js')
+      script window.jQuery || document.write('<script src="/js/vendor/jquery-3.2.1.min.js"><\/script>')
+      script(src='/js/plugins.js')
+      script(src='/js/main.js')
+
+    block tests
+      if showTests
+        div(id='mocha')
+        script(src='/vendor/mocha.js')
+        script(src='/vendor/chai.js')
+        script mocha.ui('tdd'); var assert = chai.assert;
+
+        script(src='/qa/tests-global.js')
+        if pageTestScript
+          script(src=pageTestScript)
+        
+        script mocha.run();

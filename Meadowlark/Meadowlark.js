@@ -17,12 +17,29 @@ app.set('view engine', 'pug');
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function (req, res, next) {
+    res.locals.showTests = app.get('env') !== 'production' &&
+        req.query.test === '1';
+    next();
+});
+
 app.get('/', function (req, res) {
-    res.render('Index');
+    res.render('index');
 });
 
 app.get('/about', function (req, res) {
-    res.render('About', { fortune: fortune.getFortune() });
+    res.render('about', {
+        fortune: fortune.getFortune(),
+        pageTestScript: '/qa/tests-about.js'
+    });
+});
+
+app.get('/tours/hood-river', function (req, res) {
+    res.render('tours/hood-river');
+});
+
+app.get('/tours/request-group-rate', function (req, res) {
+    res.render('tours/request-group-rate');
 });
 
 // пользовательская страница 404

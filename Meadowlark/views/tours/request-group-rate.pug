@@ -1,0 +1,17 @@
+﻿extends ..\layout.pug
+
+block content
+  h1 Запрос цены для групп
+  form
+    input(type='hidden' name='referrer')
+    div Название:
+      input(type='text' id='fieldName' name='name')
+    div Размер группы:
+      input(type='text' name='groupSize')
+    div Электронная почта:
+      input(type='email' name='email')
+    br
+    input(type='submit' value='Отправить')
+
+block append scripts
+  script $(document).ready(function(){ $('input[name="referrer"]').val(document.referrer); });
